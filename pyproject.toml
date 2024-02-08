@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "terminol"
+version = "0.1.0"
+description = "UNIX Terminal utilities so simple you can do it when you're drunk."
+readme = "README.md"
+authors = [{ name = "FyraLabs", email = "contact@fyralabs.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+	"Topic :: Terminals",
+]
+keywords = ["tui", "cli", "color", "terminal", "input"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/FyraLabs/pyterminol"
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "Bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+pre_commit_hook = ""
+post_commit_hook = ""
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"'
+]
+# "README.md" = [
+#     "{version}",
+#     "{pep440_version}",
+# ]
+"terminol/__init__.py" = [
+    '__version__ = "{version}"'
+]
